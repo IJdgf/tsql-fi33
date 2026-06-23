@@ -1,0 +1,78 @@
+1 - Rock
+2 - Pop
+3 - Jazz
+4 - Hip-Hop
+5 - Klassik
+6 - Electronic
+7 - Reggae
+
+1 - The Rolling Stones
+2 - Adele
+3 - Miles Davis
+4 - Eminem
+5 - Ludwig van Beethoven
+6 - Daft Punk
+7 - Bob Marley Junior
+8 - Coldplay
+9 - Nina Simone
+10 - Linkin Park
+
+1	Satisfaction	1	1
+2	Start Me Up	1	1
+3	Paint It Black	1	1
+4	Jumpin’ Jack Flash	1	1
+5	Brown Sugar	1	1
+6	Wild Horses	1	1
+7	Hello	2	2
+8	Rolling in the Deep	2	2
+9	Someone Like You	2	2
+10	Easy On Me	2	2
+11	So What	3	3
+12	Freddie Freeloader	3	3
+13	Blue in Green	3	3
+14	All Blues	3	3
+15	Milestones	3	3
+16	Nardis	3	3
+17	Lose Yourself	4	4
+18	The Real Slim Shady	4	4
+19	Without Me	4	4
+20	Mockingbird	4	4
+21	Stan	4	4
+22	Symphonie Nr. 5	5	5
+23	Für Elise	5	5
+24	Mondscheinsonate	5	5
+25	Ode an die Freude	5	5
+26	Harder Better Faster Stronger	6	6
+27	One More Time	6	6
+28	Digital Love	6	6
+29	Robot Rock	6	6
+30	Get Lucky	6	6
+31	Around the World	6	6
+32	Technologic	6	6
+33	No Woman No Cry	7	7
+34	Three Little Birds	7	7
+35	Redemption Song	7	7
+36	Jamming	7	7
+37	Could You Be Loved	7	7
+38	Viva La Vida	8	2
+39	Paradise	8	2
+40	Fix You	8	2
+41	The Scientist	8	2
+42	Clocks	8	2
+43	Yellow	8	2
+44	Hymn for the Weekend	8	2
+45	A Sky Full of Stars	8	2
+46	Feeling Good	9	3
+47	I Put a Spell on You	9	3
+48	Don’t Let Me Be Misunderstood	9	3
+49	Ain’t Got No, I Got Life	9	3
+50	Numb	10	1
+51	In the End	10	1
+52	Breaking the Habit	10	1
+53	One Step Closer	10	1
+54	Crawling	10	1
+55	Faint	10	1
+56	Papercut	10	1
+57	Somewhere I Belong	10	1
+
+
