@@ -85,7 +85,27 @@ INSERT INTO Mitarbeiter (nname, vname, str_hsnr, plz, ort, gebdatum, f_id, abt_n
 ('Streit', 'Wilma', 'Bahnhofstr. 121', '90403', 'Nuernberg', '1995-10-24', 3, 10, 'vz'), 
 ('See', 'Wolfgang', 'Hauptstr. 22', '90419', 'Nuernberg', '1976-12-15', 2, 1, 'vz');
 
+insert into skills values
+('Java-Programmierung'),
+('Netzwerk'),
+('Projektmanagement'),
+('Marketing'),
+('Englisch'),
+('Spanisch'),
+('Bildbearbeitung');
 
+insert into ma_skills values
+(1,1), (1,5), (2,3), (3,2), (3,5), (3,6), 
+(4,1), (5,5), (6,1),(6,4), (7,2), 
+(8,7), (9,1),(9,2), (10,3), (11,4),
+(11,5), (12,6), (13,1), (14,7), 
+(15,2),(15,3), (16,5), (17,6), (17,7), 
+(18,1), (19,4), (20,1),(20,3), (21,5), 
+(22,2),(22,5), (23,3), (24,4),(24,6), 
+(25,1), (26,7), (27,2),(27,3), (28,6),
+(29,5), (30,4), (31,1),(31,2),(31,3), 
+(32,7), (33,6), (34,2),(34,5), (35,4), 
+(36,5), (37,1), (38,2), (38,3);
 
 
 
