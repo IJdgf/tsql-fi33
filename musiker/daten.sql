@@ -7,6 +7,9 @@ INSERT INTO genre VALUES
 ('Electronic'),
 ('Reggae');
 
+INSERT INTO genre VALUES
+('Alternative')
+
 select * from genre;
 
 INSERT INTO interpret VALUES
@@ -79,6 +82,11 @@ insert into titel values
 ('Faint', 10, 1), 
 ('Papercut', 10, 1), 
 ('Somewhere I Belong', 10, 1)
+
+select * from genre
+select * from titel where titel.titel = 'Numb'
+
+update titel set titel.genre_id = 7 where titel.titel = 'Numb'
 
 select titel, interpret.name, genre.genre from titel
 join interpret on titel.interpret_id = interpret.i_id
