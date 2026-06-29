@@ -1,12 +1,8 @@
---DROP TABLE mitarbeiter;
---DROP TABLE abteilung;
---DROP TABLE arbeitszeitmodell;
---DROP TABLE familienstand;
+DROP TABLE if exists mitarbeiter;
+DROP TABLE if exists abteilung;
+DROP TABLE if exists arbeitszeitmodell;
+DROP TABLE if exists familienstand;
 
-CREATE TABLE abteilung (
-abtnr INT IDENTITY(1,1) PRIMARY KEY,
-abtbez VARCHAR(100)
-);
 
 CREATE TABLE arbeitszeitmodell (
 modell_code CHAR(2) PRIMARY KEY,
@@ -17,6 +13,13 @@ CREATE TABLE familienstand (
 f_id INT IDENTITY(1,1) PRIMARY KEY,
 fam_bez VARCHAR(50)
 );
+drop table if exists mitarbeiter;
+
+CREATE TABLE abteilung (
+abtnr INT IDENTITY(1,1) PRIMARY KEY,
+abtbez VARCHAR(100)
+);
+
 
 CREATE TABLE mitarbeiter (
 ma_id INT IDENTITY(1,1),
@@ -35,7 +38,6 @@ CONSTRAINT FK_ma_azm_azm_id FOREIGN KEY (azm_id) REFERENCES arbeitszeitmodell(mo
 CONSTRAINT FK_ma_abt_abt_nr FOREIGN KEY (abt_nr) REFERENCES abteilung(abtnr)
 );
 
---select * from mitarbeiter;
 
 --Von jedem Mitarbeiter sollen seine Skills gespeichert werden. 
 --Jeder Skill kann mehreren Mitarbeitern zugeordnet werden 
