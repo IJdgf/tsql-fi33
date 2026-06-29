@@ -95,6 +95,7 @@ join genre on titel.genre_id = genre.g_id
 select * from titel
 
 
+/*
 INSERT INTO titel (titel, interpret_id, genre_id) VALUES
 ('Satisfaction', 1, 1),
 ('Start Me Up', 1, 1),
@@ -153,6 +154,7 @@ INSERT INTO titel (titel, interpret_id, genre_id) VALUES
 ('Faint', 10, 1),
 ('Papercut', 10, 1),
 ('Somewhere I Belong', 10, 1)
+*/
 
 
 select * from genre;
