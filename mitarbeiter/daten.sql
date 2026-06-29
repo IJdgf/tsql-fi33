@@ -1,3 +1,5 @@
+use mitarbeiter;
+
 INSERT INTO abteilung VALUES
 ('Personal'),
 ('Vertrieb'),
