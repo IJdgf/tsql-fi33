@@ -57,7 +57,8 @@ join in_ver iv on iv.i_nr = i.i_id
 join veranstaltungsort ort on ort.v_id = iv.v_nr
 where i.name = 'Miles Davis'
 and 
-2026 between year(iv.datum_von) and year(datum_bis);
+year(iv.datum_von)<=2026 and year(iv.datum_bis)>=2026;
+--2026 between year(iv.datum_von) and year(datum_bis);
 
 
 
