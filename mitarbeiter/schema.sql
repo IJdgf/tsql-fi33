@@ -9,6 +9,8 @@ modell_code CHAR(2) PRIMARY KEY,
 az_bez VARCHAR(50)
 );
 
+select * from arbeitszeitmodell;
+
 CREATE TABLE familienstand (
 f_id INT IDENTITY(1,1) PRIMARY KEY,
 fam_bez VARCHAR(50)
@@ -37,6 +39,16 @@ CONSTRAINT FK_ma_fam_f_id FOREIGN KEY (f_id) REFERENCES familienstand(f_id),
 CONSTRAINT FK_ma_azm_azm_id FOREIGN KEY (azm_id) REFERENCES arbeitszeitmodell(modell_code),
 CONSTRAINT FK_ma_abt_abt_nr FOREIGN KEY (abt_nr) REFERENCES abteilung(abtnr)
 );
+
+select ma.vname Vorname, ma.nname Nachname, abt.abtbez Abteilung, 
+azm.az_bez
+from mitarbeiter ma
+join abteilung abt on abt.abtnr = ma.abt_nr
+join arbeitszeitmodell azm on azm.modell_code = ma.azm_id
+where (abt.abtbez = 'Marketing' or abt.abtbez = 'IT')
+and azm.modell_code = 'vz'
+order by abt.abtbez DESC;
+
 
 
 --Von jedem Mitarbeiter sollen seine Skills gespeichert werden. 
