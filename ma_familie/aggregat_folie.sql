@@ -29,7 +29,10 @@ select count(vname) from menschlein;
 select vname, count(fid) from menschlein
 group by vname;
 
+
 use mitarbeiter;
+
+--Weiter: Aggregat_Folie in "Mitarbeiter"-Ordner öffnen
 
 select top 0 * from mitarbeiter;
 
