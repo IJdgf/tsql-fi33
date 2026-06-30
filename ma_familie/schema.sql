@@ -36,6 +36,8 @@ where vname like '____';    -- Vorname hat 4 Symbolen
 -- % = belibig viele Symbolen
 -- _ = genau 1 Symbol
 
+
+
 --SELECT t.name AS Tabelle,    c.name AS Spalte, 
 --CASE WHEN EXISTS (SELECT 1 FROM sys.index_columns ic 
 --WHERE ic.object_id = c.object_id AND ic.column_id = c.column_id 
