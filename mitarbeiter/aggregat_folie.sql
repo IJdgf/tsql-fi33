@@ -88,22 +88,49 @@ where abt.abtbez in ('IT', 'Logistik')
 group by abt.abtnr, abt.abtbez;
 -- Keine Bedingung in der Aggregatfunktion (z.B. count(*)>5) => WHERE. Logisch und schneller.
 
-select fam_bez, anzahl
-from 
-(
- select fam_bez, count(*) as anzahl
- from mitarbeiter
- join familienstand on familienstand.f_id = mitarbeiter.f_id
- group by fam_bez
-) zwi
-where anzahl = 
-(
- select max(anzahl)
- from 
- (
- select fam_bez, count(*) as anzahl
- from mitarbeiter
- join familienstand on familienstand.f_id = mitarbeiter.f_id
- group by fam_bez
- ) zwi2
-);
+--select fam_bez, anzahl
+--from 
+--(
+-- select fam_bez, count(*) as anzahl
+-- from mitarbeiter
+-- join familienstand on familienstand.f_id = mitarbeiter.f_id
+-- group by fam_bez
+--) zwi
+--where anzahl = 
+--(
+-- select max(anzahl)
+-- from 
+-- (
+-- select fam_bez, count(*) as anzahl
+-- from mitarbeiter
+-- join familienstand on familienstand.f_id = mitarbeiter.f_id
+-- group by fam_bez
+-- ) zwi2
+--);
+
+-- ORDER BY funktioniert mit Aggregatfunktionen auch. Steht immer am Ende
+-- Abteilungsnummer und Bezeichnung mit der Anzahl der Mitarbeiter (>3 MA in der Abteilung)
+
+select a.abtnr, abtbez, count (*) 'Anzahl Mitarbeiter'
+from abteilung a
+join mitarbeiter ma on ma.abt_nr = a.abtnr
+group by a.abtnr, a.abtbez
+having count(*) > 3
+order by abtbez;  -- desc für die absteigende Sortierung
+
+select a.abtnr, abtbez, count (*) 'Anzahl Mitarbeiter'
+from abteilung a
+join mitarbeiter ma on ma.abt_nr = a.abtnr
+group by a.abtnr, a.abtbez
+having count(*) > 3
+order by count(*) desc;  -- absteigend nach Anzahl der Mitarbeiter
+
+--Aggregatfunktionen avg, min, max, sum
+
+--Count Anzahl gefundener Elemente
+--Avg Durchschnitt, NULL-Werte werden ignoriert
+--Min kleinsten Wert
+--Max größter Wert
+--Sum Summe der Werte
+
+--s.93
