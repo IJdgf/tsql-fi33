@@ -49,6 +49,7 @@ select ma.vname, ma.nname
 from mitarbeiter ma
 join familienstand fs on fs.f_id = ma.f_id
 where fs.fam_bez = 'Ledig' 
-and 
-ma.ort like 'N%rnberg';
+and
+ma.ort in ('Nürnberg', 'Nuernberg', 'Nuremberg');
+--ma.ort like 'N%rnberg';
 --ma.ort = 'Nuernberg';
