@@ -165,8 +165,33 @@ use test_db_1;
 
 select * from aggregat_test;
 
+-- 3 kleinste Werte:
+select top 3 zahl from aggregat_test
+where zahl is not null
+order by zahl ;
+
+insert into aggregat_test values (12);
+
+select * from aggregat_test;
+
+select top 3 zahl from aggregat_test
+order by zahl;
+
+select top 3 with ties zahl from aggregat_test
+order by zahl;
 
 
+insert into aggregat_test values (100);
+
+select top 3 zahl from aggregat_test
+order by zahl desc;
+
+select top 4 with ties zahl from aggregat_test
+order by zahl desc;
+
+select * from aggregat_test
+
+insert into aggregat_test values (287);
 
 
 
