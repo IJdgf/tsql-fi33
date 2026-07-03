@@ -82,12 +82,87 @@ where nachname = 'Kron'
 
 --7. Welcher meiner Freunde (nachname, vorname) hat die gleichen Hobbies wie Lecter?
 
-select vorname, nachname
+select vorname, nachname, i.inttext
 from tl3_manwoman mw
 join tl3_mw_interessen mwi on mwi.mwnr = mw.mwnr
+join tl3_interessen i on i.intnr = mwi.intnr --Nur wenn wir Interesse auch zeigen möchten!
 where mwi.intnr in 
-(select
+(select mwi.intnr
+from tl3_mw_interessen mwi
+join tl3_manwoman mw on mw.mwnr = mwi.mwnr
+where mw.nachname = 'Lecter'
+);
 
+-- Mit MEHR selects
+select nachname, vorname
+from tl3_manwoman
+where mwnr in
+(select mwnr
+from tl3_mw_interessen
+where intnr in
+(select intnr
+from tl3_mw_interessen
+where mwnr=
+(select mwnr
+from tl3_manwoman
+where nachname='lecter'
+)
+)
+)
+
+--8. Welche intnr wurden am häufigsten genannt und wie oft? Sternchenaufgabe
+-- Tipp: count und max aber ohne top
+select mwi.intnr, count(mwi.intnr)
+from tl3_mw_interessen mwi
+group by mwi.intnr
+having count(mwi.intnr) =
+(
+select max(inter.Anzahl)
+from
+(select mwi.intnr Nummer, count(*) Anzahl
+from tl3_mw_interessen mwi 
+group by mwi.intnr) inter 
 )
 
 
+--Prüfung:
+select intnr, count(*)
+from tl3_mw_interessen
+group by intnr;
+
+select * from tl3_interessen
+where intnr in (2,9);
+
+--9. Gleiches nun mit dem inttext
+select mwi.intnr, i.inttext, count(mwi.intnr)
+from tl3_mw_interessen mwi
+join tl3_interessen i on i.intnr = mwi.intnr 
+group by mwi.intnr, i.inttext
+having count(mwi.intnr) =
+(
+select max(inter.Anzahl)
+from
+(select mwi.intnr Nummer, count(*) Anzahl
+from tl3_mw_interessen mwi 
+group by mwi.intnr) inter 
+)
+
+--10.Wer hat genauso viele Interessen wir die Person mit dem Nachnamen Tuck?
+
+select distinct mw.vorname, mw.nachname
+from tl3_manwoman mw
+where mw.mwnr in 
+	(
+	select mwi.mwnr
+	from tl3_mw_interessen mwi
+	group by mwi.mwnr
+	having count(*) =
+		(
+			select count(*)
+			from tl3_mw_interessen mwi
+			where mwi.mwnr = 
+			(select mw.mwnr
+			from tl3_manwoman mw
+			where mw.nachname = 'Tuck')
+		)
+	)
