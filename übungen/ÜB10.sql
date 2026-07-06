@@ -30,11 +30,15 @@ insert into zahlen2 values (111);
 --soll die DB um Länder und Zeitzonen erweitert werden.
 use mitarbeiter;
 
+drop table if exists zeitzone;
+drop table if exists land;
+
 create table land(
 landnr int,
 landbez varchar(20)
 constraint pk_land_landnr primary key (landnr)
 );
+
 
 insert into land values
 (1,'Deutschland'),
@@ -52,9 +56,14 @@ zonennr int,
 zonenbez varchar(100), 
 utc_offset varchar(10)
 constraint pk_zeitzone_zonennr primary key(zonennr),
-constraint fk_zeitzone_land_zonennr foreign key(zonennr)
-references land(landnr)
+--constraint fk_zeitzone_land_zonennr foreign key(zonennr)
+--references land(landnr)
 );
+
+alter table land add constraint fk_land_zeitzone_landnr
+foreign key (landnr) references zeitzone (zonennr);
+
+--alter table zeitzone drop fk_zeitzone_land_zonennr;
 
 insert into zeitzone (zonennr, zonenbez, utc_offset) values
 (1,'mitteleuropäische zeit (mez)','+1'),
